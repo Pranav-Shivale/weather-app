@@ -1,6 +1,7 @@
 import { filterWeatherData } from "./weatherApi.js";
 import { displayTempInfo } from "./displayTempInfo.js";
 import { displayWeatherDetails } from "./displayWeatherDetails.js";
+import { loading } from "./loading.js";
 
 const searchCityWeather = () => {
   const cityForm = document.querySelector(".city-form");
@@ -15,6 +16,7 @@ const searchCityWeather = () => {
 };
 
 const displayWeather = async (cityName) => {
+  loading();
   const weatherData = await filterWeatherData(cityName);
   displayTempInfo(weatherData);
   displayWeatherDetails(weatherData);
