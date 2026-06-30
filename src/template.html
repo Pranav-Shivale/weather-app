@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template Repository</title>
+    <title>Weather App</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="temp-info">
+        <form class="city-form">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search a city"
+            required
+          />
+          <button type="submit" class="search-btn">
+            <img src="images/search-icon.svg" alt="Search icon" />
+          </button>
+        </form>
+      </div>
+
+      <div class="weather-details">
+        <h1>Weather Details</h1>
+      </div>
+    </div>
+  </body>
 </html>
