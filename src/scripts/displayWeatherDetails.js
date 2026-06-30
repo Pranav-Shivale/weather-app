@@ -16,24 +16,28 @@ const displayWeatherDetails = (weatherData) => {
   else if (temp <= 25) cellColor = "normal";
   else cellColor = "hot";
 
-  const wind = createCell("Wind", currentConditions.windspeed, cellColor);
+  const wind = createCell(
+    "Wind",
+    currentConditions.windspeed + " km/h",
+    cellColor,
+  );
   const humidity = createCell(
     "Humidity",
-    currentConditions.humidity,
+    currentConditions.humidity + "%",
     cellColor,
   );
   const feelsLike = createCell(
     "Feels Like",
-    currentConditions.feelslike,
+    currentConditions.feelslike + "\u00B0C",
     cellColor,
   );
   const uvIndex = createCell("UV Index", currentConditions.uvindex, cellColor);
   const pressure = createCell(
     "Pressure",
-    currentConditions.pressure,
+    currentConditions.pressure + " mb",
     cellColor,
   );
-  const dew = createCell("Dew", currentConditions.dew, cellColor);
+  const dew = createCell("Dew", currentConditions.dew + "\u00B0C", cellColor);
   const cloudCover = createCell(
     "Cloud Cover",
     currentConditions.cloudcover,

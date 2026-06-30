@@ -18,7 +18,7 @@ const displayTempInfo = async (weatherData) => {
   tempDiv.classList.add("temp");
   const tempValue = document.createElement("p");
   tempValue.classList.add("temp-value");
-  tempValue.textContent = currentConditions.temp;
+  tempValue.textContent = currentConditions.temp + "\u00B0C";
   const tempCondition = document.createElement("p");
   tempCondition.classList.add("temp-condition");
   tempCondition.textContent = currentConditions.conditions;
