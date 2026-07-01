@@ -2,6 +2,9 @@ const getWeatherData = async (cityName) => {
   const response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?key=X49FQX5VARM8G9Z6CJ2W7NEK6&unitGroup=metric&iconSet=icons2`,
   );
+  if (!response.ok) {
+    throw new Error("failed to fetch weather data.");
+  }
   const responseJson = await response.json();
   return responseJson;
 };
