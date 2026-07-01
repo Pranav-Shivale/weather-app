@@ -1,7 +1,7 @@
 import { filterWeatherData } from "./weatherApi.js";
 import { displayTempInfo } from "./displayTempInfo.js";
 import { displayWeatherDetails } from "./displayWeatherDetails.js";
-import { loading } from "./loading.js";
+import { loading, stopLoading } from "./loading.js";
 
 const searchCityWeather = () => {
   const cityForm = document.querySelector(".city-form");
@@ -17,9 +17,16 @@ const searchCityWeather = () => {
 
 const displayWeather = async (cityName) => {
   loading();
-  const weatherData = await filterWeatherData(cityName);
-  displayTempInfo(weatherData);
-  displayWeatherDetails(weatherData);
+
+  try {
+    const weatherData = await filterWeatherData(cityName);
+    displayTempInfo(weatherData);
+    displayWeatherDetails(weatherData);
+  } catch (error) {
+    alert("Please enter a valid city/location.");
+    stopLoading();
+    console.error(error);
+  }
 };
 
 export { searchCityWeather };
